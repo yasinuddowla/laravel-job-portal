@@ -115,19 +115,13 @@ A simple job listing application built with Laravel (backend) and Vue.js (fronte
     php artisan migrate --seed
     ```
 
-7. **Compile assets**
+7. **Start the development server**
 
     ```
-    npm run dev
+    composer run dev
     ```
 
-8. **Start the development server**
-
-    ```
-    php artisan serve
-    ```
-
-9. **Access the application**
+8. **Access the application**
 
     Navigate to `http://localhost:8000` in your browser.
 
@@ -135,22 +129,13 @@ A simple job listing application built with Laravel (backend) and Vue.js (fronte
 
 To test email notifications:
 
-1. Configure mail settings in `.env`:
+1. Configure mail settings: For local development, you can use Laravel Log set `MAIL_MAILER=log` in `.env`
+
+2. Start listening for queued jobs
 
     ```
-    MAIL_MAILER=smtp
-    MAIL_HOST=mailhog
-    MAIL_PORT=1025
-    MAIL_USERNAME=null
-    MAIL_PASSWORD=null
-    MAIL_ENCRYPTION=null
-    MAIL_FROM_ADDRESS="hello@example.com"
-    MAIL_FROM_NAME="${APP_NAME}"
+    php artisan queue:listen
     ```
-
-2. For local development, you can use Mailhog or Mailtrap:
-    - Mailhog: `brew install mailhog` (for macOS)
-    - Mailtrap: Create an account and update MAIL\_\* settings
 
 ## Running Tests
 
